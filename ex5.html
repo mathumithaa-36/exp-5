@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .main{
+            border-width:1px;
+            border-style:solid;
+            height:200px;
+        }
+        .head{
+            background-color: rgb(15, 173, 173);
+            padding-left: 20px;
+        }
+        h3,h1 {
+            color:white;
+        }
+        .b1{
+            width:50%;
+            float:left;
+        }
+        .b2{
+            width:50%;
+            float:right;
+        }
+    </style>
+    <script>
+        function bmi(){
+            var w = parseFloat(document.getElementById('weight').value);
+            var h = parseFloat(document.getElementById('height').value);
+            var bmi = parseInt(w/(h*h));
+            document.getElementById('bmi').innerHTML = bmi;
+            if(bmi<18){
+                document.getElementById('bmi-name').innerHTML = "Under Weight";
+            }
+            else if (18<bmi<25){
+                document.getElementById('bmi-name').innerHTML = "Normal";
+            }
+            else if (25<bmi<30){
+                document.getElementById('bmi-name').innerHTML = "Overweight";
+            }
+            else if (bmi>30){
+                document.getElementById('bmi-name').innerHTML = "Obese";
+            }
+            else{
+                document.getElementById('bmi-name').innerHTML = "Try again";
+            }
+        }
+    </script>
+</head>
+<body><div class="main">
+    <div class="head">
+    <h1>Body mass index (BMI)</h1>
+    <h3>A measure of body fat in adults</h3>
+    </div>
+
+    <div>
+    <div class="b1">
+    <div>Weight: <input type="text" id="weight" onkeyup="bmi()"></div> <br><br>
+    <div>Height: <input type="text" id="height" onkeyup="bmi()"></div> <br><br>
+    </div>
+    <div class="b2">
+    <div id="bmi" style="color:rgb(15, 173, 173); font-size:45px;"></div>
+    <div id="bmi-name" style="color:rgb(15, 173, 173); font-size:15px;"></div>
+    </div>
+    </div>
+
+</div>
+</body>
+</html>
